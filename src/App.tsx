@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,14 +18,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/tracker" element={<Tracker />} />
-          <Route path="/marketplace" element={<Marketplace />} />
-          <Route path="/consultations" element={<Consultations />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div style={{ backgroundColor: 'white', minHeight: '100vh' }}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/tracker" element={<Tracker />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/consultations" element={<Consultations />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
