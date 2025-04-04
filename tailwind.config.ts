@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,27 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// EmpowerCycle custom colors
+				empowerpink: {
+					light: '#FFC5D9',
+					DEFAULT: '#FF8CAE',
+					dark: '#E65C8A'
+				},
+				empowerpurple: {
+					light: '#E1CFF9',
+					DEFAULT: '#B388EB',
+					dark: '#8B5FD9'
+				},
+				empowerteal: {
+					light: '#ADE5E5',
+					DEFAULT: '#66C7C7',
+					dark: '#3AA7A7'
 				}
+			},
+			fontFamily: {
+				sans: ['Poppins', 'sans-serif'],
+				display: ['Montserrat', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +105,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-gentle': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-gentle': 'pulse-gentle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
 			}
 		}
 	},
