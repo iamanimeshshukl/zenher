@@ -26,7 +26,7 @@ const CycleSummary = () => {
           </div>
         </div>
         
-        <Progress value={progress} className="h-2 bg-white/50" indicatorClassName="bg-empowerpink" />
+        <Progress value={progress} className="h-2 bg-white/50" />
         
         <div className="mt-5 flex items-center justify-between text-sm">
           <div className="flex items-center">

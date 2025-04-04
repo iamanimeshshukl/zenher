@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import CycleTracker from '@/components/cycle/CycleTracker';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { CalendarClock, Sparkles, LineChart, MoodHappy } from 'lucide-react';
+import { CalendarClock, Sparkles, LineChart, SmileIcon } from 'lucide-react';
 
 const Tracker = () => {
   return (
@@ -25,7 +25,7 @@ const Tracker = () => {
               <LineChart size={16} className="mr-2" /> Insights
             </TabsTrigger>
             <TabsTrigger value="symptoms" className="flex-1">
-              <MoodHappy size={16} className="mr-2" /> Symptoms
+              <SmileIcon size={16} className="mr-2" /> Symptoms
             </TabsTrigger>
           </TabsList>
           
