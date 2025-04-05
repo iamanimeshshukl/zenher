@@ -34,7 +34,7 @@ const articles = [
     id: 1,
     title: "Understanding Your Menstrual Cycle",
     excerpt: "Learn the phases of your cycle and how they affect your body and mind.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    image: "https://media.istockphoto.com/id/1225434824/vector/woman-exercising-in-fitness-club-or-gym.jpg?s=612x612&w=0&k=20&c=yk7KJLnTKTmQ8uQCNPG1tw-YroViqc3XNX8KyuO4mxo=",
     // Source: Unsplash, Photo by Thought Catalog
     link: "/articles/understanding-your-cycle",
   },
@@ -42,7 +42,7 @@ const articles = [
     id: 2,
     title: "Nutrition Tips for Hormonal Balance",
     excerpt: "Discover foods that support your hormonal health throughout your cycle.",
-    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "https://media.istockphoto.com/id/2079013558/vector/woman.jpg?s=612x612&w=0&k=20&c=UG8ihzWJaFo4oUkVlo6-4AQ3xJJDgowJ-OqOsDTNY8Q=",
     // Source: Pexels, Photo by Ella Olsson
     link: "/articles/nutrition-tips",
   },
@@ -113,13 +113,13 @@ const Index = () => {
     <img
       src={image}
       alt="Zenher Illustration"
-      className="w-full max-w-md rounded-xl shadow-lg"
+      className="w-full max-w-md rounded-xl"
     />
   </div>
 
   {/* Primary CTA button */}
   <div className="flex justify-center">
-    <Button className="bg-empowerpink-dark hover:bg-empowerpink text-white px-8 py-4 text-lg rounded-full shadow-md transition-all duration-300">
+    <Button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 text-lg rounded-full shadow-md transition-all duration-300">
       Start Tracking
     </Button>
   </div>
@@ -152,9 +152,7 @@ const Index = () => {
           >
             <div className="flex justify-between items-center mb-8">
               <h2 className="text-2xl font-bold text-black ">Explore Our Articles</h2>
-              <Button variant="link" className="text-empowerpink-dark">
-                View All
-              </Button>
+              
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {articles.map((article, index) => (
