@@ -9,60 +9,51 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 const Consultations = () => {
   return (
     <Layout>
-      <div className="container mx-auto py-10 px-4 lg:px-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 font-display">
+      <div className="container mx-auto py-8 px-4 lg:px-8">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+          <h1 className="text-3xl font-bold text-gray-800 font-display">
            Doctor Consultations
           </h1>
-          <Button
-            variant="outline"
-            size="sm"
-            className="flex items-center gap-2 text-primary hover:bg-primary/10 transition"
-          >
-            <CalendarCheck size={18} /> My Appointments
+          <Button variant="outline" size="sm" className="flex items-center gap-2">
+            <CalendarCheck size={16} /> My Appointments
           </Button>
         </div>
 
-        {/* Search Bar */}
-        <div className="relative mb-8">
-          <Search
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-            size={18}
+        {/* Search Section */}
+        <div className="relative mb-6">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
+          <Input 
+            placeholder="Search doctors by name, specialty, or condition..." 
+            className="pl-10 pr-12 h-11 shadow-sm bg-white border border-muted rounded-md"
           />
-          <Input
-            placeholder="Search by name, specialty, or condition..."
-            className="pl-10 pr-12 h-12 border rounded-xl shadow-sm bg-white focus:ring-2 focus:ring-primary"
-          />
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:bg-muted/20 rounded-full"
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:bg-muted"
           >
-            <SlidersHorizontal size={18} />
+            <SlidersHorizontal size={16} />
           </Button>
         </div>
 
-        {/* Specialty Tabs */}
+        {/* Tabs for Specialties */}
         <Tabs defaultValue="all" className="w-full">
-          <TabsList className="flex w-full overflow-x-auto px-1 py-2 rounded-xl bg-muted border shadow-sm gap-2 mb-6">
-            {[
-              { value: 'all', label: 'All Specialists' },
-              { value: 'gynecologist', label: 'Gynecologists' },
-              { value: 'fertility', label: 'Fertility Experts' },
-              { value: 'menstrual', label: 'Menstrual Health' },
-            ].map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                className="min-w-[150px] text-sm font-medium whitespace-nowrap px-4 py-2 rounded-lg transition-all hover:bg-white data-[state=active]:bg-white data-[state=active]:text-primary shadow-sm"
-              >
-                {tab.label}
-              </TabsTrigger>
-            ))}
+          <TabsList className="w-full mb-6 overflow-x-auto flex flex-wrap gap-2 rounded-lg border bg-muted px-2 py-1">
+            <TabsTrigger value="all" className="flex-1 min-w-[150px] text-sm font-medium whitespace-nowrap">
+              All Specialists
+            </TabsTrigger>
+            <TabsTrigger value="gynecologist" className="flex-1 min-w-[150px] text-sm font-medium whitespace-nowrap">
+              Gynecologists
+            </TabsTrigger>
+            <TabsTrigger value="fertility" className="flex-1 min-w-[150px] text-sm font-medium whitespace-nowrap">
+              Fertility Experts
+            </TabsTrigger>
+            <TabsTrigger value="menstrual" className="flex-1 min-w-[150px] text-sm font-medium whitespace-nowrap">
+              Menstrual Health
+            </TabsTrigger>
           </TabsList>
 
-          {/* Tab Content */}
+          {/* Doctor List Content */}
           <TabsContent value="all">
             <DoctorList />
           </TabsContent>
