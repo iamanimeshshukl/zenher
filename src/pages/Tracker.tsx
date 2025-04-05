@@ -38,12 +38,9 @@ const Tracker = () => {
           animate="visible"
           variants={fadeInUp}
         >
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-black tracking-tight">
+          <center><h1 className="text-3xl md:text-4xl font-display font-bold text-black tracking-tight">
             Your Cycle Tracker
-          </h1>
-          <Button variant="outline" className="border-empowerpurple-dark text-empowerpurple-dark">
-            Log Today
-          </Button>
+          </h1></center>
         </motion.div>
 
         {/* Tabs Section */}

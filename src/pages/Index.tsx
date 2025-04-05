@@ -7,7 +7,7 @@ import ResourcesSection from '@/components/dashboard/ResourcesSection';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
+import image from "../assests/hero-image.png"
 // Animation Variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -94,22 +94,37 @@ const Index = () => {
           transition={{ duration: 0.6 }}
         >
           {/* Hero Section */}
-          <motion.div initial="hidden" animate="visible" custom={0} variants={fadeInUp} className="mb-16 text-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold font-display text-empowerpurple-dark tracking-tight mb-4">
-              Welcome to <span className="text-empowerpink-dark">ZenHer</span>
-            </h1>
-            <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto">
-              Track your cycle, connect with experts, and discover personalized wellness solutions—all in one place.
-            </p>
-            <div className="mt-6 flex justify-center gap-4">
-              <Button className="bg-empowerpink-dark hover:bg-empowerpink text-white" size="lg">
-                Start Tracking
-              </Button>
-              <Button variant="outline" className="border-empowerpurple-dark text-empowerpurple-dark" size="lg">
-                Learn More
-              </Button>
-            </div>
-          </motion.div>
+          <motion.div
+  initial="hidden"
+  animate="visible"
+  custom={0}
+  variants={fadeInUp}
+  className="mb-20 text-center px-4"
+>
+  <h1 className="text-3xl md:text-6xl font-extrabold font-display text-black tracking-tight mb-6">
+    Welcome to Zenher
+  </h1>
+  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8">
+    Track your cycle, connect with experts, and discover personalized wellness solutions—all in one place.
+  </p>
+
+  {/* Central illustrative image (adjust src as needed) */}
+  <div className="flex justify-center mb-10">
+    <img
+      src={image}
+      alt="Zenher Illustration"
+      className="w-full max-w-md rounded-xl shadow-lg"
+    />
+  </div>
+
+  {/* Primary CTA button */}
+  <div className="flex justify-center">
+    <Button className="bg-empowerpink-dark hover:bg-empowerpink text-white px-8 py-4 text-lg rounded-full shadow-md transition-all duration-300">
+      Start Tracking
+    </Button>
+  </div>
+</motion.div>
+
 
           {/* Dashboard Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
@@ -136,7 +151,7 @@ const Index = () => {
             animate="visible"
           >
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-empowerpurple-dark">Explore Our Articles</h2>
+              <h2 className="text-2xl font-bold text-black ">Explore Our Articles</h2>
               <Button variant="link" className="text-empowerpink-dark">
                 View All
               </Button>
@@ -153,11 +168,11 @@ const Index = () => {
                       />
                     </CardHeader>
                     <CardContent className="pt-4">
-                      <CardTitle className="text-xl font-semibold text-empowerpurple-dark">
+                      <CardTitle className="text-xl font-semibold text-black line-clamp-1">
                         {article.title}
                       </CardTitle>
                       <p className="text-muted-foreground mt-2 line-clamp-2">{article.excerpt}</p>
-                      <Button variant="link" className="mt-4 p-0 text-empowerpink-dark">
+                      <Button variant="link" className="mt-4 p-0 text-black line-clamp-1">
                         Read More
                       </Button>
                     </CardContent>

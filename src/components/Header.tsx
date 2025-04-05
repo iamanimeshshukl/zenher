@@ -11,29 +11,30 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import logo from '../assests/zenher-logo.png'; // Adjust the path to your logo
+import logo from '../assests/zenher-logo.png'; // Adjust the path if needed
+
 const Header = () => {
   return (
-    <header className="py-4 border-b border-border bg-white shadow-md sticky top-0 z-50">
+    <header className="py-3 border-b border-border bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Logo + Brand Name */}
-        <div className="flex items-center gap-3 cursor-pointer select-none">
-          
-          <h1 className="text-2xl font-extrabold text-black tracking-tight font-display hover:scale-105 transition-transform duration-200">
+        <div className="flex items-center gap-2 cursor-pointer select-none">
+          <img src={logo} alt="ZenHer Logo" className="h-8 w-auto object-contain" />
+          <h1 className="text-xl font-semibold text-black tracking-tight font-display">
             Zenher
           </h1>
         </div>
 
         {/* Notification and Avatar */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {/* Tooltip + Bell */}
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button variant="ghost" size="icon" className="relative hover:bg-empowerpink/10 transition">
-                  <Bell size={22} className="text-muted-foreground" />
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-empowerpink animate-ping" />
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-empowerpink" />
+                  <Bell size={20} className="text-muted-foreground" />
+                  <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-empowerpink animate-ping" />
+                  <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-empowerpink" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
@@ -46,10 +47,8 @@ const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="cursor-pointer hover:ring-2 ring-empowerpink transition">
-                <AvatarImage src="/user.jpg" alt="User" /> {/* Optional */}
-                <AvatarFallback className="bg-black text-white">
-                  SM
-                </AvatarFallback>
+                <AvatarImage src="/user.jpg" alt="User" />
+                <AvatarFallback className="bg-black text-white">SM</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-48 mt-2">
