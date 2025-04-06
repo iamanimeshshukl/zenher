@@ -1,8 +1,12 @@
+
+
 import React from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Heart, Star } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react';
+
+// Sample product data with additional fields for Amazon-like features
 
 const products = [
   {
@@ -42,72 +46,89 @@ const products = [
     rating: 4.3,
   },
 ];
-
+// Product Grid Component
 const ProductGrid = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <section className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </section>
   );
 };
 
-type ProductCardProps = {
-  product: {
-    id: number;
-    name: string;
-    price: number;
-    originalPrice: number;
-    image: string;
-    badge?: string;
-    rating: number;
-  };
-};
-
-const ProductCard = ({ product }: ProductCardProps) => {
+// Product Card Component
+const ProductCard = ({ product }) => {
   return (
-    <Card className="group transition-all border border-gray-200 hover:shadow-lg hover:-translate-y-1 rounded-xl overflow-hidden">
-      <div className="relative w-full h-48 bg-white">
+    <Card className="group flex flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg max-h-96">
+      {/* Image Section */}
+      <div className="relative w-full h-40 bg-gray-50">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-contain p-4 transition-transform group-hover:scale-105"
+          className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
         />
         {product.badge && (
-          <Badge className="absolute top-2 left-2 bg-empowerpink text-white text-xs">
+          <Badge className="absolute top-2 left-2 bg-teal-100 text-teal-800 text-xs font-medium px-2 py-0.5 rounded-full">
             {product.badge}
           </Badge>
         )}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-2 right-2 bg-white/80 hover:bg-white text-empowerpink"
-        >
-          <Heart size={18} />
-        </Button>
       </div>
 
-      <CardContent className="p-3">
-        <h3 className="font-medium text-sm line-clamp-2">{product.name}</h3>
+      {/* Content Section */}
+      <CardContent className="flex flex-col flex-grow p-4">
+        <h3 className="text-base font-semibold text-gray-800 line-clamp-1 mb-2 hover:text-teal-600 transition-colors">
+          {product.name}
+        </h3>
 
-        <div className="flex items-center gap-2 mt-1">
-          <span className="text-sm font-semibold text-empowerpurple-dark">₹{product.price.toFixed(2)}</span>
-          <span className="text-xs text-gray-400 line-through">₹{product.originalPrice.toFixed(2)}</span>
+        {/* Rating and Reviews */}
+        <div className="flex items-center mb-2">
+          <div className="flex items-center text-amber-500">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star
+                key={i}
+                size={14}
+                className={`mr-0.5 ${
+                  i < Math.floor(product.rating)
+                    ? 'fill-amber-500 stroke-amber-500'
+                    : 'stroke-gray-300'
+                }`}
+              />
+            ))}
+          </div>
+          <span className="text-xs text-gray-500 ml-1">({product.reviews})</span>
         </div>
 
-        <div className="flex items-center text-sm mt-1 text-yellow-500">
-          {Array.from({ length: Math.floor(product.rating) }).map((_, i) => (
-            <Star key={i} size={14} className="fill-yellow-400 stroke-yellow-400 mr-0.5" />
-          ))}
-          <span className="text-muted-foreground ml-1 text-xs">({product.rating})</span>
+        {/* Pricing and Wellness */}
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2">
+            <span className="text-lg font-medium text-gray-900">₹{product.price.toFixed(2)}</span>
+            {product.originalPrice > product.price && (
+              <span className="text-xs text-gray-400 line-through">₹{product.originalPrice.toFixed(2)}</span>
+            )}
+            {product.originalPrice > product.price && (
+              <span className="text-xs text-teal-600 font-medium">
+                {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% off
+              </span>
+            )}
+          </div>
+          {product.wellness && (
+            <span className="text-xs text-teal-700 font-medium">Wellness Certified</span>
+          )}
         </div>
       </CardContent>
 
-      <CardFooter className="p-3 pt-0">
-        <Button className="w-full h-9 bg-cyan-600 text-white text-sm">
-          <ShoppingCart size={16} className="mr-2" /> Add to Cart
-        </Button>
+      {/* Footer Section */}
+      <CardFooter className="p-4 pt-0">
+        <div className="flex w-full gap-2">
+          <Button className="flex-1 h-8 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium rounded-md hover:bg-teal-700 transition-colors">
+            <ShoppingCart size={16} className="mr-1" />
+            Add
+          </Button>
+        
+        </div>
       </CardFooter>
     </Card>
   );

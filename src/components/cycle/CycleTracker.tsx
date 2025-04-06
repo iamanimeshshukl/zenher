@@ -103,8 +103,8 @@ const CycleTracker = () => {
             <CardTitle className="text-xl font-display font-semibold text-empowerpurple-dark">
               Your Cycle Calendar
             </CardTitle>
-            <Badge className="bg-empowerpink hover:bg-empowerpink-dark">
-              <CalendarIcon size={14} className="mr-1" /> 28-Day Cycle
+            <Badge className="bg-gradient-to-r from-pink-500 to-purple-600">
+              <CalendarIcon size={14} className="mr-1" /> 28 Days
             </Badge>
           </CardHeader>
           <CardContent>
@@ -188,7 +188,7 @@ const CycleTracker = () => {
                 </span>
               </div>
             </div>
-            <Button className="mt-4 w-full bg-empowerpurple-dark hover:bg-empowerpurple text-white">
+            <Button className="mt-4 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white">
               View Full Cycle History
             </Button>
           </CardContent>

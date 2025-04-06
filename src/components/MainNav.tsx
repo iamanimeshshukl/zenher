@@ -18,11 +18,11 @@ interface NavItemConfig {
 }
 
 const NAV_ITEMS: NavItemConfig[] = [
-  { path: '/', icon: HomeIcon, label: 'Home', ariaLabel: 'Dashboard', color: '#4B5563' },
-  { path: '/tracker', icon: CalendarCheck, label: 'Track', ariaLabel: 'Cycle Tracker', color: '#A21CAF' },
-  { path: '/marketplace', icon: ShoppingCart, label: 'Shop', ariaLabel: 'Marketplace', color: '#047857' },
-  { path: '/consultations', icon: PhoneCall, label: 'Consult', ariaLabel: 'Consultations', color: '#B45309' },
-  { path: '/community', icon: Users2, label: 'Connect', ariaLabel: 'Community', color: '#1D4ED8' },
+  { path: '/', icon: HomeIcon, label: 'Home', ariaLabel: 'Dashboard', color: '##000000' },
+  { path: '/tracker', icon: CalendarCheck, label: 'Track', ariaLabel: 'Cycle Tracker', color: '##000000' },
+  { path: '/marketplace', icon: ShoppingCart, label: 'Shop', ariaLabel: 'Marketplace', color: '##000000' },
+  { path: '/consultations', icon: PhoneCall, label: 'Consult', ariaLabel: 'Consultations', color: '##000000' },
+  { path: '/community', icon: Users2, label: 'Connect', ariaLabel: 'Community', color: '##000000' },
 ];
 
 const MainNav: React.FC = () => {

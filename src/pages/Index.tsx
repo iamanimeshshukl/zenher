@@ -95,32 +95,34 @@ const Index = () => {
         >
           {/* Hero Section */}
           <motion.div
-  initial="hidden"
-  animate="visible"
-  custom={0}
-  variants={fadeInUp}
-  className="mb-20 text-center px-4"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  className="mb-24 text-center px-6 md:px-8"
 >
-  <h1 className="text-3xl md:text-6xl font-extrabold font-display text-black tracking-tight mb-6">
-    Welcome to Zenher
+  {/* Heading */}
+  <h1 className="text-4xl md:text-5xl font-bold font-sans text-gray-900 tracking-tight mb-4 md:mb-6">
+    Discover Zenher
   </h1>
-  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8">
-    Track your cycle, connect with experts, and discover personalized wellness solutions—all in one place.
+  
+  {/* Subheading */}
+  <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto mb-10 leading-relaxed">
+    Effortlessly track your cycle, connect with wellness experts, and unlock personalized health insights—all in one beautifully designed space.
   </p>
 
-  {/* Central illustrative image (adjust src as needed) */}
-  <div className="flex justify-center mb-10">
+  {/* Central illustrative image */}
+  <div className="flex justify-center mb-12">
     <img
       src={image}
-      alt="Zenher Illustration"
-      className="w-full max-w-md rounded-xl"
+      alt="Zenher Wellness Illustration"
+      className="w-full max-w-sm md:max-w-lg rounded-2xl transform hover:scale-105 transition-transform duration-300"
     />
   </div>
 
   {/* Primary CTA button */}
   <div className="flex justify-center">
-    <Button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 text-lg rounded-full shadow-md transition-all duration-300">
-      Start Tracking
+    <Button className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-10 py-3 text-base md:text-lg font-medium rounded-full shadow-lg hover:shadow-xl hover:from-indigo-600 hover:to-purple-700 transition-all duration-300">
+      Get Started
     </Button>
   </div>
 </motion.div>

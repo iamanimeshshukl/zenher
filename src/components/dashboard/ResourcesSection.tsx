@@ -7,57 +7,63 @@ import { motion } from 'framer-motion';
 const resources = [
   {
     id: 1,
-    title: 'Understanding Your Cycle Phases',
-    description: 'Learn about the four main phases of your menstrual cycle and how they affect your body.',
-    icon: '🌙'
+    title: 'Master Your Cycle Phases',
+    description: 'Explore the four key stages of your menstrual cycle and their impact on your wellbeing.',
+    icon: '🌙',
+    gradient: 'from-indigo-50 to-blue-100',
   },
   {
     id: 2,
-    title: 'Managing PMS Symptoms Naturally',
-    description: 'Discover natural remedies and lifestyle changes to help reduce PMS symptoms.',
-    icon: '🌿'
+    title: 'Ease PMS Naturally',
+    description: 'Uncover holistic remedies and lifestyle tips to soothe PMS discomfort.',
+    icon: '🌿',
+    gradient: 'from-green-50 to-teal-100',
   },
   {
     id: 3,
-    title: 'Nutrition Tips for Hormone Balance',
-    description: 'Foods that can help support hormone balance throughout your cycle.',
-    icon: '🥗'
-  }
+    title: 'Nourish for Hormone Harmony',
+    description: 'Learn which foods support balanced hormones throughout your cycle.',
+    icon: '🥗',
+    gradient: 'from-amber-50 to-orange-100',
+  },
 ];
 
 const ResourcesSection = () => {
   return (
-    <Card className="shadow-xl border-none bg-gradient-to-br from-white to-pink-50">
-      <CardContent className="py-6 px-4 md:px-6">
-        <div className="flex justify-between items-center mb-6">
-          <h3 className="font-display text-lg font-semibold text-gray-900">Educational Resources</h3>
+    <section className="py-12 px-4 md:px-8 bg-gray-50">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
+          <h3 className="text-2xl md:text-3xl font-sans font-semibold text-gray-900 tracking-tight">
+            Wellness Insights
+          </h3>
           <Button
-            variant="ghost"
+            variant="outline"
             size="sm"
-            className="text-empowerpink hover:text-empowerpink-dark transition-colors"
+            className="text-indigo-600 border-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-300 rounded-full px-4"
           >
-            View All
+            Explore All
           </Button>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           {resources.map((resource, index) => (
             <motion.div
               key={resource.id}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.15, duration: 0.5, ease: 'easeOut' }}
             >
               <ResourceItem
                 title={resource.title}
                 description={resource.description}
                 icon={resource.icon}
+                gradient={resource.gradient}
               />
             </motion.div>
           ))}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 };
 
@@ -65,23 +71,30 @@ type ResourceItemProps = {
   title: string;
   description: string;
   icon: string;
+  gradient: string;
 };
 
-const ResourceItem = ({ title, description, icon }: ResourceItemProps) => {
+const ResourceItem = ({ title, description, icon, gradient }: ResourceItemProps) => {
   return (
-    <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border hover:shadow-md transition-all group cursor-pointer">
-      <div className="text-3xl">{icon}</div>
-
-      <div className="flex-1 min-w-0">
-        <h4 className="font-semibold text-sm text-gray-900">{title}</h4>
-        <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{description}</p>
-      </div>
-
-      <ArrowRight
-        size={18}
-        className="text-muted-foreground group-hover:text-empowerpink transition-colors mt-1"
-      />
-    </div>
+    <Card
+      className={`bg-gradient-to-br ${gradient} border-none shadow-md hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden group cursor-pointer`}
+    >
+      <CardContent className="p-6 flex flex-col gap-4 h-full">
+        <div className="text-4xl w-12 h-12 flex items-center justify-center bg-white/50 rounded-full">
+          {icon}
+        </div>
+        <div>
+          <h4 className="text-lg font-semibold text-gray-900 mb-2 leading-tight">{title}</h4>
+          <p className="text-sm text-gray-700 line-clamp-3 leading-relaxed">{description}</p>
+        </div>
+        <div className="mt-auto flex justify-end">
+          <ArrowRight
+            size={20}
+            className="text-gray-500 group-hover:text-indigo-600 transition-colors duration-300"
+          />
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 
